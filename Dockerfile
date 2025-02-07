@@ -27,6 +27,6 @@ RUN ./gradlew clean build --no-daemon -x test
 FROM openjdk:17-alpine
 WORKDIR /myapp
 # 프로젝트 빌드 후 생성된 jar 파일을 런타임 이미지로 복사
-COPY --from=build /myapp/build/libs/*.jar /myapp/get.jar
+COPY --from=build /myapp/build/libs/*.jar /myapp/getRand_userseivce.jar
 EXPOSE 5002
-ENTRYPOINT ["java", "-jar", "/myapp/orderservice.jar"]
+ENTRYPOINT ["java", "-jar", "/myapp/getRand_userseivce.jar"]
