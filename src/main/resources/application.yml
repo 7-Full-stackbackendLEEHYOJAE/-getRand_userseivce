@@ -1,0 +1,40 @@
+server:
+  port: 5002
+
+spring:
+  application:
+    name: userservice
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/getrand?serverTimezone=Asia/Seoul
+    username: mytest
+    password: 1234
+
+  jpa:
+    show-sql: true
+    hibernate:
+#      ddl-auto: create
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+  instance:
+    # 2초동안 하트비트가 수신되지 않으면 서비스 등록을 해제
+    lease-expiration-duration-in-seconds: 2
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type:
+          descriptor:
+            sql: trace
