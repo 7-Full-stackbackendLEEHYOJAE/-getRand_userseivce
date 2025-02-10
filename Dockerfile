@@ -1,4 +1,4 @@
-ROM gradle:8.11.1-jdk17 AS build
+FROM gradle:8.11.1-jdk17 AS build
 # 소스코드를 복사할 작업 디렉토리 생성
 WORKDIR /myapp
 # 호스트 머신의 소스코드를 이미지 작업 디렉토리로 복사
